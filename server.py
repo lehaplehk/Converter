@@ -15,6 +15,7 @@ import hashlib
 import _pdf2docx
 import uuid
 import _pytube
+import _moviepy
 
 app = Flask(__name__,template_folder="./_templates",static_folder="./_static")
 CORS(app)
@@ -42,7 +43,7 @@ def pdftodocx():
         file.save("./tmp/"+tmp_file_name)
         _pdf2docx.convertPdfToDocx("./tmp/"+tmp_file_name,"./tmp/_"+tmp_file_name)
         os.remove("./tmp/"+tmp_file_name) 
-        return send_file("./tmp/_"+tmp_file_name,download_name=basename+".docx"), 200
+        return send_file("./tmp/_"+tmp_file_name,download_name=basename+".docx",as_attachment=True), 200
     return "Error"
 
 @app.route('/loader/mp4toyutube', methods=[ 'POST'])
@@ -50,7 +51,18 @@ def loaderyoutubemp4():
     link = request.form['link']
     tmp_file_name = str(uuid.uuid4())
     file_name = _pytube.Download(link,tmp_file_name)
-    return send_file("./tmp/"+tmp_file_name,download_name=file_name+".mp4"), 200
+    return send_file("./tmp/"+tmp_file_name,download_name=file_name+".mp4",as_attachment=True), 200
+
+@app.route('/loader/yttomp3', methods=[ 'POST'])
+def loaderyoutubemp3():
+    link = request.form['link']
+    tmp_file_name = str(uuid.uuid4())
+    file_name = _pytube.Download(link,tmp_file_name)
+    out = _moviepy.Convert("./tmp/"+file_name,tmp_file_name+".mp3")
+    os.remove("./tmp/"+tmp_file_name)
+    #return send_file(files,download_name=file_name+".mp3"), 200
+    return send_file("./tmp/"+tmp_file_name+".mp3",download_name="325345",as_attachment=True), 200
+    return send_file("./tmp/"+tmp_file_name+".mp3",download_name=file_name+".mp3",as_attachment=True), 200
 
         
 
