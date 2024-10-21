@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="margin: 10px;" class="">
+  <div style="display:inline;float:left;"><img width="32"  src="/_static/img/box.png"></div>
+  <div style="display:inline;float:left; margin-left: 10px;"><h3>Converter</h3></div>
+</div><br><br>
+<div style=" display:inline;float:left; ">Convert .pdf to .docx
+  <form class="" action = "/convert/pdftodocx" method="POST" enctype="multipart/form-data">
+    <input class="" id="fileuploadinput" onchange="" accept=".pdf"  type="file" name="file" />               
+    <input id="upload_submit"  class="" onclick="" type = "submit" value="Convert">
+  </form>
+</div>
+
+{% endblock %}

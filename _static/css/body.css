@@ -1,0 +1,173 @@
+.unvis {
+    visibility: hidden;
+    display: none;
+  }
+
+.card {
+  border-radius: 0px;
+}
+
+.modal-content{
+  border-radius: 0px;
+}
+
+.t-div {
+  color: #33CC33;
+}
+
+.list-group-item{
+  border-radius: 0px;
+  background-color: #1f1f1f;
+
+}
+
+.usercard-home-card {
+    border: none; 
+    margin-bottom: 5px;
+    margin: 10px;
+    max-width: 700px;
+}
+
+.bg_old {
+  background: -webkit-linear-gradient(90deg, #9a4572,#692fae);background: linear-gradient(90deg, #9a4572,#692fae);
+}
+
+.bg {
+  background-color: #1f1f1f;
+}
+
+
+
+
+.mes-me{
+  background-color: #2a2f33;
+}
+
+.mes-to{
+  background-color: #2a2f33;
+}
+
+
+
+.card-body {
+    border-radius: 8px;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.img-center{
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.menu-item-small{
+  width: 70px; 
+  height: 70px; 
+  margin: 5px; 
+  display:inline; 
+  float:left;
+}
+
+.usercard-img {
+    width: 160px; 
+    float:left;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation: pulsOut 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
+}
+.loader:before {
+  width: 100%;
+  padding-bottom: 100%;
+  box-shadow: inset 0 0 0 1rem #fff;
+  animation-name: pulsIn;
+}
+.loader:after {
+  width: calc(100% - 2rem);
+  padding-bottom: calc(100% - 2rem);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+@keyframes pulsIn {
+  0% {
+    box-shadow: inset 0 0 0 1rem #fff;
+    opacity: 1;
+  }
+  50%, 100% {
+    box-shadow: inset 0 0 0 0 #fff;
+    opacity: 0;
+  }
+}
+
+@keyframes pulsOut {
+  0%, 50% {
+    box-shadow: 0 0 0 0 #fff;
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 1rem #fff;
+    opacity: 1;
+  }
+}
+    
+
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

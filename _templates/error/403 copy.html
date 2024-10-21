@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+
+    
+    
+
+    
+    <meta charset="UTF-8">
+    <title>Error 403</title>
+  </head>
+    <body class="" style="width:100%; overflow-x:hidden;" >
+
+      <div class="position-absolute top-50 start-50 translate-middle text-center">
+        <div class="fs-1">403</div>
+        <div>Кажысь у тебя нет туда доступа.Я звоню в полицию</div>
+        <img style="border-radius: 20px;" width="100%" src="/static/img/error/403.jpg"><br><br>
+        <button id="clickbtn5" onclick="javascript:history.back(); return false;" type="submit" class="btn btn-secondary">Back</button>
+      </div>
+      
+    </body>
+</html>
