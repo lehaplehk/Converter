@@ -14,15 +14,12 @@ import random
 import hashlib
 import _pdf2docx
 import uuid
+import _pytube
 
 app = Flask(__name__,template_folder="./_templates",static_folder="./_static")
 CORS(app)
 web_key = open("./config/web.key", 'r')
 app.secret_key = str(web_key)
-
-@app.route('/')
-def home():
-    return render_template("base.html")
 
 @app.route('/about')
 def about():
@@ -47,6 +44,13 @@ def pdftodocx():
         os.remove("./tmp/"+tmp_file_name) 
         return send_file("./tmp/_"+tmp_file_name,download_name=basename+".docx"), 200
     return "Error"
+
+@app.route('/loader/mp4toyutube', methods=[ 'POST'])
+def loaderyoutubemp4():
+    link = request.form['link']
+    tmp_file_name = str(uuid.uuid4())
+    file_name = _pytube.Download(link,tmp_file_name)
+    return send_file("./tmp/"+tmp_file_name,download_name=file_name+".mp4"), 200
 
         
 
