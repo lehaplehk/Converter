@@ -16,6 +16,7 @@ import _pdf2docx
 import uuid
 import _pytube
 import _moviepy
+import _PIL
 
 app = Flask(__name__,template_folder="./_templates",static_folder="./_static")
 CORS(app)
@@ -46,6 +47,30 @@ def pdftodocx():
         return send_file("./tmp/_"+tmp_file_name,download_name=basename+".docx",as_attachment=True), 200
     return "Error"
 
+@app.route('/convert/pngtojpg', methods=[ 'POST'])
+def pngtojpg():
+    files = request.files.getlist("file")
+    for file in files:
+        basename, extension = os.path.splitext(file.filename)
+        tmp_file_name = str(uuid.uuid4())
+        file.save("./tmp/"+tmp_file_name)
+        _PIL.convertImage("./tmp/"+tmp_file_name,"./tmp/_"+tmp_file_name,".jpg")
+        os.remove("./tmp/"+tmp_file_name) 
+        return send_file("./tmp/_"+tmp_file_name+".jpg",download_name=basename+".jpg",as_attachment=True), 200
+    return "Error"
+
+@app.route('/convert/jpgtopng', methods=[ 'POST'])
+def jpgtopng():
+    files = request.files.getlist("file")
+    for file in files:
+        basename, extension = os.path.splitext(file.filename)
+        tmp_file_name = str(uuid.uuid4())
+        file.save("./tmp/"+tmp_file_name)
+        _PIL.convertImage("./tmp/"+tmp_file_name,"./tmp/_"+tmp_file_name,".png")
+        os.remove("./tmp/"+tmp_file_name) 
+        return send_file("./tmp/_"+tmp_file_name+".png",download_name=basename+".png",as_attachment=True), 200
+    return "Error"
+    
 @app.route('/loader/mp4toyutube', methods=[ 'POST'])
 def loaderyoutubemp4():
     link = request.form['link']

@@ -5,9 +5,23 @@
   <div style="display:inline;float:left;"><img width="32"  src="/_static/img/box.png"></div>
   <div style="display:inline;float:left; margin-left: 10px;"><h3>Converter</h3></div>
 </div><br><br>
+<div>__CONVERT DOCKS__</div>
 <div style=" display:inline;float:left; ">Convert .pdf to .docx
   <form class="" action = "/srv/convert/pdftodocx" method="POST" enctype="multipart/form-data">
     <input class="" id="fileuploadinput" onchange="" accept=".pdf"  type="file" name="file" />               
+    <input id="upload_submit"  class="" onclick="" type = "submit" value="Convert">
+  </form>
+</div><br><br><br>
+<div>__CONVERT IMAGES__</div>
+<div style=" display:inline;float:left; ">Convert .png to .jpg
+  <form class="" action = "/srv/convert/pngtojpg" method="POST" enctype="multipart/form-data">
+    <input class="" id="fileuploadinput" onchange="" accept=".png"  type="file" name="file" />               
+    <input id="upload_submit"  class="" onclick="" type = "submit" value="Convert">
+  </form>
+</div><br><br><br>
+<div style=" display:inline;float:left; ">Convert .jpg to .png
+  <form class="" action = "/srv/convert/jpgtopng" method="POST" enctype="multipart/form-data">
+    <input class="" id="fileuploadinput" onchange="" accept=".jpg"  type="file" name="file" />               
     <input id="upload_submit"  class="" onclick="" type = "submit" value="Convert">
   </form>
 </div>
